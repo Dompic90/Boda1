@@ -26,7 +26,7 @@
     header h1{
       font-size:3.5rem;
       letter-spacing:4px;
-      text-shadow:0 0 10px rgba(255,255,255,0.6), 0 0 25px rgba(0,0,0,0.4);
+      text-shadow:0 0 12px rgba(255,255,255,0.9), 0 0 25px rgba(0,0,0,0.3);
     }
 
     header p{
@@ -50,12 +50,12 @@
     }
 
     .time-box{
-      background:rgba(255,255,255,0.25);
-      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,0.35);
+      backdrop-filter:blur(8px);
       padding:1rem 1.5rem;
       border-radius:12px;
       color:white;
-      text-shadow:0 0 6px rgba(0,0,0,0.3);
+      text-shadow:0 0 8px rgba(0,0,0,0.2);
     }
 
     section{padding:6rem 2rem;max-width:1000px;margin:auto}
@@ -70,7 +70,23 @@
 
     .rsvp form{display:grid;gap:1rem;max-width:500px;margin:auto}
     input,textarea{padding:0.9rem;border-radius:10px;border:1px solid #ccc}
-    button{padding:1rem;border:none;background:var(--primary);color:white;border-radius:10px;cursor:pointer;font-weight:500}
+
+    button{
+      padding:1rem 1.2rem;
+      border:none;
+      background:var(--primary);
+      color:white;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:500;
+      font-family:'Playfair Display', serif;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#b68f6d;
+    }
 
     footer{text-align:center;padding:3rem 1rem;font-size:0.9rem}
 
@@ -175,9 +191,15 @@
 
   function toggleMusic(){
     if(!playing){
+      music.volume = 0;
       music.play().catch(() => {
         alert("Pulsa de nuevo para activar la música 🎵");
       });
+      let vol = 0;
+      const fade = setInterval(() => {
+        if(vol < 1) { vol += 0.02; music.volume = vol; }
+        else clearInterval(fade);
+      }, 50);
       playing = true;
       document.querySelector('.music-btn').innerText = "❚❚";
     } else {
