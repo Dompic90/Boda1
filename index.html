@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,35 +6,36 @@
   <style>
     :root {
       --primary: #c9a27e;
-      --dark: #2b2b2b;
-      --light: #f9f7f4;
+      --dark: #1f1f1f;
+      --light: #f8f6f2;
     }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--light);line-height:1.6}
-    h1,h2,h3{font-family:'Playfair Display',serif}
+    body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--light)}
+    h1,h2{font-family:'Playfair Display',serif}
 
     header{
       height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
       background:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600') center/cover no-repeat;
-      color:white;padding:1rem
+      color:white;position:relative
     }
-    header h1{font-size:3rem;letter-spacing:2px}
-    header p{margin-top:1rem;font-size:1.2rem}
-    #countdown{margin-top:1.5rem;font-size:1.1rem}
+    header::after{
+      content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4)
+    }
+    header h1, header p, #countdown{position:relative}
+    header h1{font-size:3rem;letter-spacing:3px}
+    header p{margin-top:1rem}
+    #countdown{margin-top:1.5rem}
 
-    section{padding:4rem 2rem;max-width:900px;margin:auto}
-    .title{text-align:center;margin-bottom:2rem}
+    section{padding:5rem 2rem;max-width:1000px;margin:auto}
+    .title{text-align:center;margin-bottom:3rem}
 
-    .timeline{border-left:2px solid var(--primary);padding-left:1rem}
-    .timeline div{margin-bottom:1.5rem}
+    .maps iframe{width:100%;height:300px;border:none;border-radius:12px;margin-top:1rem}
 
-    .details,.gifts{text-align:center}
+    .rsvp form{display:grid;gap:1rem;max-width:500px;margin:auto}
+    input,textarea{padding:0.8rem;border:1px solid #ccc;border-radius:10px}
+    button{padding:1rem;border:none;background:var(--primary);color:white;border-radius:10px;cursor:pointer}
 
-    .rsvp form{display:grid;gap:1rem;max-width:400px;margin:auto}
-    input,select,textarea{padding:0.7rem;border:1px solid #ccc;border-radius:8px}
-    button{padding:0.8rem;border:none;background:var(--primary);color:white;border-radius:8px;cursor:pointer}
-
-    footer{text-align:center;padding:2rem;font-size:0.9rem}
+    footer{text-align:center;padding:2rem}
   </style>
 </head>
 <body>
@@ -48,38 +48,33 @@
 
 <section>
   <h2 class="title">Nuestra Historia</h2>
-  <div class="timeline">
-    <div><strong>Todo empezó:</strong> Cuando nuestros caminos se cruzaron...</div>
-    <div><strong>Momentos inolvidables:</strong> Viajes, risas y recuerdos juntos...</div>
-    <div><strong>El gran paso:</strong> Decidimos decir "sí" para siempre.</div>
-  </div>
+  <p style="text-align:center;max-width:600px;margin:auto;">
+    Todo empezó sin esperarlo... entre risas, viajes y momentos inolvidables,
+    fuimos construyendo una historia que hoy queremos celebrar con vosotros.
+    El 12 de septiembre de 2026 será el comienzo de nuestro para siempre.
+  </p>
 </section>
 
-<section class="details">
-  <h2 class="title">Detalles del Evento</h2>
-  <p><strong>Ceremonia:</strong> Iglesia de La Merced, Huelva</p>
-  <p><strong>Celebración:</strong> Museo Bodegas Andrade, Bollullos Par del Condado</p>
-  <p><strong>Fecha:</strong> 12/09/2026</p>
+<section class="maps">
+  <h2 class="title">Ceremonia</h2>
+  <p style="text-align:center;">Iglesia de La Merced, Huelva</p>
+  <iframe src="https://www.google.com/maps?q=Iglesia%20de%20La%20Merced%20Huelva&output=embed"></iframe>
+</section>
+
+<section class="maps">
+  <h2 class="title">Celebración</h2>
+  <p style="text-align:center;">Museo Bodegas Andrade, Bollullos Par del Condado</p>
+  <iframe src="https://www.google.com/maps?q=Museo%20Bodegas%20Andrade%20Bollullos&output=embed"></iframe>
 </section>
 
 <section class="rsvp">
   <h2 class="title">Confirmación de Asistencia</h2>
-  <form>
-    <input type="text" placeholder="Nombre" required>
-    <select>
-      <option>¿Asistirás?</option>
-      <option>Sí</option>
-      <option>No</option>
-    </select>
-    <textarea placeholder="Alergias o comentarios"></textarea>
-    <button type="submit">Enviar</button>
+  <form action="https://formspree.io/f/yourID" method="POST">
+    <input type="text" name="invitado" placeholder="Nombre del invitado" required>
+    <input type="text" name="familia" placeholder="¿Qué familiares asistirán?">
+    <textarea name="comentarios" placeholder="Alergias o comentarios"></textarea>
+    <button type="submit">Confirmar asistencia</button>
   </form>
-</section>
-
-<section class="gifts">
-  <h2 class="title">Regalos</h2>
-  <p>Vuestra presencia es nuestro mejor regalo, pero si queréis tener un detalle con nosotros...</p>
-  <p><strong>IBAN:</strong> ES00 0000 0000 0000</p>
 </section>
 
 <footer>
