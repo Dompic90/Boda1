@@ -14,7 +14,6 @@
       background:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600') center/cover no-repeat;
       color:white;position:relative
     }
-    /* Más luz en el centro, menos oscuridad */
     header::after{
       content:"";
       position:absolute;
@@ -24,7 +23,6 @@
 
     header *{position:relative}
 
-    /* Glow elegante para mejorar legibilidad */
     header h1{
       font-size:3.5rem;
       letter-spacing:4px;
@@ -35,6 +33,13 @@
       margin-top:1rem;
       font-size:1.2rem;
       text-shadow:0 0 8px rgba(255,255,255,0.5);
+    }
+
+    .music-hint{
+      margin-top:1rem;
+      font-size:0.9rem;
+      opacity:0.9;
+      text-shadow:0 0 6px rgba(0,0,0,0.4);
     }
 
     #countdown{
@@ -69,7 +74,6 @@
 
     footer{text-align:center;padding:3rem 1rem;font-size:0.9rem}
 
-    /* Botón música */
     .music-btn{
       position:fixed;
       bottom:20px;
@@ -91,6 +95,7 @@
 <header>
   <h1>Israel & Iosune</h1>
   <p>12 de septiembre de 2026</p>
+  <div class="music-hint">Activa la música para una mejor experiencia ♪</div>
   <div id="countdown">
     <div class="time-box"><span id="days"></span><br>días</div>
     <div class="time-box"><span id="hours"></span><br>horas</div>
@@ -139,7 +144,6 @@
   <p>Con amor, Israel & Iosune ❤️</p>
 </footer>
 
-<!-- Música suave -->
 <audio id="music" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9bcebf.mp3?filename=wedding-piano-110624.mp3" type="audio/mpeg">
 </audio>
@@ -166,8 +170,18 @@
   faders.forEach(el=>observer.observe(el));
 
   const music = document.getElementById('music');
+  let playing = false;
+
   function toggleMusic(){
-    if(music.paused){ music.play(); } else { music.pause(); }
+    if(!playing){
+      music.play();
+      playing = true;
+      document.querySelector('.music-btn').innerText = "❚❚";
+    } else {
+      music.pause();
+      playing = false;
+      document.querySelector('.music-btn').innerText = "♪";
+    }
   }
 </script>
 
