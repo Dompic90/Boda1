@@ -1,255 +1,105 @@
 <!DOCTYPE html>
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Israel & Iosune — Nuestra Boda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c9a27e;
+      --dark: #2b2b2b;
+      --light: #f9f7f4;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--light);line-height:1.6}
+    h1,h2,h3{font-family:'Playfair Display',serif}
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    header{
+      height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+      background:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600') center/cover no-repeat;
+      color:white;padding:1rem
+    }
+    header h1{font-size:3rem;letter-spacing:2px}
+    header p{margin-top:1rem;font-size:1.2rem}
+    #countdown{margin-top:1.5rem;font-size:1.1rem}
 
-<title>Israel & Iosune | Nuestra Boda</title>
+    section{padding:4rem 2rem;max-width:900px;margin:auto}
+    .title{text-align:center;margin-bottom:2rem}
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    .timeline{border-left:2px solid var(--primary);padding-left:1rem}
+    .timeline div{margin-bottom:1.5rem}
 
-<style>
+    .details,.gifts{text-align:center}
 
-body{
-margin:0;
-font-family: 'Montserrat', sans-serif;
-background:#f9f6f2;
-color:#333;
-text-align:center;
-}
+    .rsvp form{display:grid;gap:1rem;max-width:400px;margin:auto}
+    input,select,textarea{padding:0.7rem;border:1px solid #ccc;border-radius:8px}
+    button{padding:0.8rem;border:none;background:var(--primary);color:white;border-radius:8px;cursor:pointer}
 
-h1,h2,h3{
-font-family:'Playfair Display', serif;
-}
-
-.hero{
-height:90vh;
-background:url("https://images.unsplash.com/photo-1519741497674-611481863552") center/cover;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:white;
-}
-
-.hero h1{
-font-size:70px;
-margin:0;
-}
-
-.hero p{
-font-size:24px;
-margin-top:10px;
-}
-
-section{
-padding:70px 20px;
-max-width:900px;
-margin:auto;
-}
-
-.card{
-background:white;
-padding:40px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-margin:30px 0;
-}
-
-.countdown{
-font-size:32px;
-margin-top:20px;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:10px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
-
-button{
-background:#caa65a;
-border:none;
-padding:12px 25px;
-border-radius:6px;
-font-size:16px;
-color:white;
-cursor:pointer;
-}
-
-input{
-padding:10px;
-width:80%;
-margin:10px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-footer{
-background:#222;
-color:white;
-padding:30px;
-}
-
-</style>
-
+    footer{text-align:center;padding:2rem;font-size:0.9rem}
+  </style>
 </head>
-
 <body>
 
-<div class="hero">
-
-<h1>Israel & Iosune</h1>
-<p>¡Nos casamos!</p>
-<p>12 · Septiembre · 2026</p>
-
-</div>
-
+<header>
+  <h1>Israel & Iosune</h1>
+  <p>12 de septiembre de 2026</p>
+  <div id="countdown"></div>
+</header>
 
 <section>
+  <h2 class="title">Nuestra Historia</h2>
+  <div class="timeline">
+    <div><strong>Todo empezó:</strong> Cuando nuestros caminos se cruzaron...</div>
+    <div><strong>Momentos inolvidables:</strong> Viajes, risas y recuerdos juntos...</div>
+    <div><strong>El gran paso:</strong> Decidimos decir "sí" para siempre.</div>
+  </div>
+</section>
 
-<div class="card">
+<section class="details">
+  <h2 class="title">Detalles del Evento</h2>
+  <p><strong>Ceremonia:</strong> Iglesia de La Merced, Huelva</p>
+  <p><strong>Celebración:</strong> Museo Bodegas Andrade, Bollullos Par del Condado</p>
+  <p><strong>Fecha:</strong> 12/09/2026</p>
+</section>
 
-<h2>Cuenta atrás</h2>
-<div id="countdown" class="countdown"></div>
+<section class="rsvp">
+  <h2 class="title">Confirmación de Asistencia</h2>
+  <form>
+    <input type="text" placeholder="Nombre" required>
+    <select>
+      <option>¿Asistirás?</option>
+      <option>Sí</option>
+      <option>No</option>
+    </select>
+    <textarea placeholder="Alergias o comentarios"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-</div>
-
-
-<div class="card">
-
-<h2>Ceremonia</h2>
-
-<p><b>Iglesia de La Merced Huelva</b></p>
-<p>18:00</p>
-
-<iframe
-width="100%"
-height="250"
-style="border:0"
-loading="lazy"
-src="https://www.google.com/maps?q=Iglesia+de+La+Merced+Bollullos+Par+del+Condado&output=embed">
-</iframe>
-
-</div>
-
-
-<div class="card">
-
-<h2>Celebración</h2>
-
-<p><b>Bodegas Andrade Museo</b></p>
-<p>21:00</p>
-
-<iframe
-width="100%"
-height="250"
-style="border:0"
-loading="lazy"
-src="https://www.google.com/maps?q=Bodegas+Andrade+Bollullos+Par+del+Condado&output=embed">
-</iframe>
-
-</div>
-
-
-<div class="card">
-
-<h2>Nuestra historia</h2>
-
-<p>
-Todo comenzó con una casualidad…  
-y terminó convirtiéndose en la aventura más bonita de nuestras vidas.
-</p>
-
-<p>
-Después de muchos momentos juntos, viajes, risas y sueños…  
-hemos decidido dar el paso más importante.
-</p>
-
-<p>
-¡Y queremos celebrarlo contigo!
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h2>Galería</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-<img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74">
-<img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde">
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h2>Confirmar asistencia</h2>
-
-<form onsubmit="confirmar(event)">
-
-<input placeholder="Tu nombre" required>
-<br>
-
-<input placeholder="Número de invitados">
-<br>
-
-<button>Confirmar</button>
-
-</form>
-
-<p id="mensaje"></p>
-
-</div>
-
+<section class="gifts">
+  <h2 class="title">Regalos</h2>
+  <p>Vuestra presencia es nuestro mejor regalo, pero si queréis tener un detalle con nosotros...</p>
+  <p><strong>IBAN:</strong> ES00 0000 0000 0000</p>
 </section>
 
 <footer>
-
-<p>Israel & Iosune</p>
-<p>12 Septiembre 2026</p>
-
+  <p>Con amor, Israel & Iosune ❤️</p>
 </footer>
 
-
 <script>
+  const weddingDate = new Date("2026-09-12T12:00:00").getTime();
+  const countdown = document.getElementById("countdown");
 
-var fecha = new Date("Sep 12, 2026 18:00:00").getTime();
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-setInterval(function(){
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
 
-var ahora = new Date().getTime();
-var distancia = fecha - ahora;
-
-var dias = Math.floor(distancia/(1000*60*60*24));
-var horas = Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
-var minutos = Math.floor((distancia%(1000*60*60))/(1000*60));
-
-document.getElementById("countdown").innerHTML =
-dias+" días "+horas+" horas "+minutos+" minutos";
-
-},1000);
-
-
-function confirmar(e){
-
-e.preventDefault();
-
-document.getElementById("mensaje").innerHTML="¡Gracias! Nos hace mucha ilusión contar contigo 💕";
-
-}
-
+    countdown.innerHTML = `${days} días · ${hours}h ${minutes}m`;
+  }, 1000);
 </script>
 
 </body>
