@@ -14,13 +14,44 @@
       background:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600') center/cover no-repeat;
       color:white;position:relative
     }
-    header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
-    header *{position:relative}
-    header h1{font-size:3.5rem;letter-spacing:4px}
-    header p{margin-top:1rem;font-size:1.2rem}
+    /* Más luz en el centro, menos oscuridad */
+    header::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
+    }
 
-    #countdown{margin-top:2rem;display:flex;gap:1.5rem;font-size:1.1rem}
-    .time-box{background:rgba(255,255,255,0.15);padding:1rem 1.5rem;border-radius:10px}
+    header *{position:relative}
+
+    /* Glow elegante para mejorar legibilidad */
+    header h1{
+      font-size:3.5rem;
+      letter-spacing:4px;
+      text-shadow:0 0 10px rgba(255,255,255,0.6), 0 0 25px rgba(0,0,0,0.4);
+    }
+
+    header p{
+      margin-top:1rem;
+      font-size:1.2rem;
+      text-shadow:0 0 8px rgba(255,255,255,0.5);
+    }
+
+    #countdown{
+      margin-top:2rem;
+      display:flex;
+      gap:1.5rem;
+      font-size:1.1rem
+    }
+
+    .time-box{
+      background:rgba(255,255,255,0.25);
+      backdrop-filter:blur(6px);
+      padding:1rem 1.5rem;
+      border-radius:12px;
+      color:white;
+      text-shadow:0 0 6px rgba(0,0,0,0.3);
+    }
 
     section{padding:6rem 2rem;max-width:1000px;margin:auto}
     .title{text-align:center;margin-bottom:3rem}
@@ -37,6 +68,22 @@
     button{padding:1rem;border:none;background:var(--primary);color:white;border-radius:10px;cursor:pointer;font-weight:500}
 
     footer{text-align:center;padding:3rem 1rem;font-size:0.9rem}
+
+    /* Botón música */
+    .music-btn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:var(--primary);
+      color:white;
+      border:none;
+      border-radius:50%;
+      width:50px;
+      height:50px;
+      cursor:pointer;
+      font-size:18px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
@@ -92,6 +139,12 @@
   <p>Con amor, Israel & Iosune ❤️</p>
 </footer>
 
+<!-- Música suave -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9bcebf.mp3?filename=wedding-piano-110624.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">♪</button>
+
 <script>
   const weddingDate = new Date("2026-09-12T12:00:00").getTime();
 
@@ -111,6 +164,11 @@
     });
   });
   faders.forEach(el=>observer.observe(el));
+
+  const music = document.getElementById('music');
+  function toggleMusic(){
+    if(music.paused){ music.play(); } else { music.pause(); }
+  }
 </script>
 
 </body>
