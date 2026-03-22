@@ -68,26 +68,6 @@
 
     .info{display:grid;gap:1.5rem;text-align:center}
 
-    .rsvp form{display:grid;gap:1rem;max-width:500px;margin:auto}
-    input,textarea{padding:0.9rem;border-radius:10px;border:1px solid #ccc}
-
-    button{
-      padding:1rem 1.2rem;
-      border:none;
-      background:var(--primary);
-      color:white;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:500;
-      font-family:'Playfair Display', serif;
-      transition: transform 0.2s, background 0.3s;
-    }
-
-    button:hover{
-      transform:scale(1.05);
-      background:#b68f6d;
-    }
-
     footer{text-align:center;padding:3rem 1rem;font-size:0.9rem}
 
     .music-btn{
@@ -155,12 +135,7 @@
 
 <section class="rsvp fade">
   <h2 class="title">Confirmación de Asistencia</h2>
-  <form action="https://formspree.io/f/yourID" method="POST">
-    <input type="text" name="invitado" placeholder="Nombre del invitado" required>
-    <input type="text" name="acompañantes" placeholder="Nombre de los acompañantes que asistirán">
-    <textarea name="comentarios" placeholder="Alergias o comentarios"></textarea>
-    <button type="submit">Confirmar asistencia</button>
-  </form>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQpiy0USF3IWSCbMUeN18oAjjiLhyI6y1szkmHbYv0XSD1IA/viewform?embedded=true" width="100%" height="500" style="border:0;"></iframe>
 </section>
 
 <footer>
