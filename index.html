@@ -4,13 +4,9 @@
   <title>Israel & Iosune — Nuestra Boda</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #c9a27e;
-      --dark: #1f1f1f;
-      --light: #f8f6f2;
-    }
+    :root { --primary:#c9a27e; --dark:#1a1a1a; --light:#f8f6f2; }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--light)}
+    body{font-family:'Inter',sans-serif;background:var(--light);color:var(--dark)}
     h1,h2{font-family:'Playfair Display',serif}
 
     header{
@@ -18,24 +14,29 @@
       background:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600') center/cover no-repeat;
       color:white;position:relative
     }
-    header::after{
-      content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4)
-    }
-    header h1, header p, #countdown{position:relative}
-    header h1{font-size:3rem;letter-spacing:3px}
-    header p{margin-top:1rem}
-    #countdown{margin-top:1.5rem}
+    header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
+    header *{position:relative}
+    header h1{font-size:3.5rem;letter-spacing:4px}
+    header p{margin-top:1rem;font-size:1.2rem}
 
-    section{padding:5rem 2rem;max-width:1000px;margin:auto}
+    #countdown{margin-top:2rem;display:flex;gap:1.5rem;font-size:1.1rem}
+    .time-box{background:rgba(255,255,255,0.15);padding:1rem 1.5rem;border-radius:10px}
+
+    section{padding:6rem 2rem;max-width:1000px;margin:auto}
     .title{text-align:center;margin-bottom:3rem}
 
-    .maps iframe{width:100%;height:300px;border:none;border-radius:12px;margin-top:1rem}
+    .fade{opacity:0;transform:translateY(30px);transition:all 1s ease}
+    .fade.visible{opacity:1;transform:translateY(0)}
+
+    .maps iframe{width:100%;height:320px;border:none;border-radius:14px;margin-top:1rem}
+
+    .info{display:grid;gap:1.5rem;text-align:center}
 
     .rsvp form{display:grid;gap:1rem;max-width:500px;margin:auto}
-    input,textarea{padding:0.8rem;border:1px solid #ccc;border-radius:10px}
-    button{padding:1rem;border:none;background:var(--primary);color:white;border-radius:10px;cursor:pointer}
+    input,textarea{padding:0.9rem;border-radius:10px;border:1px solid #ccc}
+    button{padding:1rem;border:none;background:var(--primary);color:white;border-radius:10px;cursor:pointer;font-weight:500}
 
-    footer{text-align:center;padding:2rem}
+    footer{text-align:center;padding:3rem 1rem;font-size:0.9rem}
   </style>
 </head>
 <body>
@@ -43,35 +44,45 @@
 <header>
   <h1>Israel & Iosune</h1>
   <p>12 de septiembre de 2026</p>
-  <div id="countdown"></div>
+  <div id="countdown">
+    <div class="time-box"><span id="days"></span><br>días</div>
+    <div class="time-box"><span id="hours"></span><br>horas</div>
+    <div class="time-box"><span id="minutes"></span><br>min</div>
+  </div>
 </header>
 
-<section>
+<section class="fade">
   <h2 class="title">Nuestra Historia</h2>
-  <p style="text-align:center;max-width:600px;margin:auto;">
-    Todo empezó sin esperarlo... entre risas, viajes y momentos inolvidables,
-    fuimos construyendo una historia que hoy queremos celebrar con vosotros.
-    El 12 de septiembre de 2026 será el comienzo de nuestro para siempre.
+  <p style="text-align:center;max-width:650px;margin:auto;">
+    Todo empezó sin esperarlo… entre miradas, risas y momentos únicos.
+    Poco a poco construimos algo que hoy queremos celebrar con vosotros.
+    El 12 de septiembre de 2026 comienza nuestro para siempre.
   </p>
 </section>
 
-<section class="maps">
+<section class="maps fade">
   <h2 class="title">Ceremonia</h2>
   <p style="text-align:center;">Iglesia de La Merced, Huelva</p>
   <iframe src="https://www.google.com/maps?q=Iglesia%20de%20La%20Merced%20Huelva&output=embed"></iframe>
 </section>
 
-<section class="maps">
+<section class="maps fade">
   <h2 class="title">Celebración</h2>
-  <p style="text-align:center;">Museo Bodegas Andrade, Bollullos Par del Condado</p>
-  <iframe src="https://www.google.com/maps?q=Museo%20Bodegas%20Andrade%20Bollullos&output=embed"></iframe>
+  <p style="text-align:center;">Eventos y Museo Bodegas Andrade</p>
+  <iframe src="https://www.google.com/maps?q=Bodegas%20Andrade%20Bollullos%20Par%20del%20Condado&output=embed"></iframe>
 </section>
 
-<section class="rsvp">
+<section class="info fade">
+  <h2 class="title">Información útil</h2>
+  <p>Os recomendamos llegar con antelación para disfrutar del día sin prisas.</p>
+  <p>Si necesitáis ayuda o tenéis dudas, podéis contactar con nosotros.</p>
+</section>
+
+<section class="rsvp fade">
   <h2 class="title">Confirmación de Asistencia</h2>
   <form action="https://formspree.io/f/yourID" method="POST">
     <input type="text" name="invitado" placeholder="Nombre del invitado" required>
-    <input type="text" name="familia" placeholder="¿Qué familiares asistirán?">
+    <input type="text" name="familia" placeholder="Miembros de la familia que asistirán">
     <textarea name="comentarios" placeholder="Alergias o comentarios"></textarea>
     <button type="submit">Confirmar asistencia</button>
   </form>
@@ -83,18 +94,23 @@
 
 <script>
   const weddingDate = new Date("2026-09-12T12:00:00").getTime();
-  const countdown = document.getElementById("countdown");
 
-  setInterval(() => {
+  setInterval(()=>{
     const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const d = weddingDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    document.getElementById('days').innerText = Math.floor(d/(1000*60*60*24));
+    document.getElementById('hours').innerText = Math.floor((d/(1000*60*60))%24);
+    document.getElementById('minutes').innerText = Math.floor((d/(1000*60))%60);
+  },1000);
 
-    countdown.innerHTML = `${days} días · ${hours}h ${minutes}m`;
-  }, 1000);
+  const faders = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');}
+    });
+  });
+  faders.forEach(el=>observer.observe(el));
 </script>
 
 </body>
