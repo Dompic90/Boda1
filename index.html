@@ -144,8 +144,9 @@
   <p>Con amor, Israel & Iosune ❤️</p>
 </footer>
 
-<audio id="music" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9bcebf.mp3?filename=wedding-piano-110624.mp3" type="audio/mpeg">
+<!-- Música local subida a GitHub -->
+<audio id="music" loop preload="auto">
+  <source src="audio/romantic_piano.mp3" type="audio/mpeg">
 </audio>
 <button class="music-btn" onclick="toggleMusic()">♪</button>
 
@@ -174,7 +175,9 @@
 
   function toggleMusic(){
     if(!playing){
-      music.play();
+      music.play().catch(() => {
+        alert("Pulsa de nuevo para activar la música 🎵");
+      });
       playing = true;
       document.querySelector('.music-btn').innerText = "❚❚";
     } else {
